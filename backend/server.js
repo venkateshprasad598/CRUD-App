@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 //Parser
+
 app.use(express.urlencoded({ extended: false }));
 //Json
 app.use(express.json());

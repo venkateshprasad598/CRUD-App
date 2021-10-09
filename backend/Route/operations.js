@@ -20,7 +20,13 @@ const postTask = async (req, res) => {
 const editTask = (req, res) => {
   res.status(200).json("Home");
 };
-const deleteTask = (req, res) => {
-  res.status(200).json("Home");
+const deleteTask = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleteTodo = await Todo.findOneAndDelete({ _id: id });
+    res.status(201).json({ deleteTodo });
+  } catch (err) {
+    res.status(404).json({ message: err });
+  }
 };
 module.exports = { getTask, postTask, editTask, deleteTask };
