@@ -12,7 +12,6 @@ app.use("/api/v1/crud", router);
 // To block the Port
 const cors = require("cors");
 app.use(cors());
-
 //db Setup
 require("dotenv").config();
 const connectDb = require("./Route/db/database");

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [postData, setPostData] = useState({ name: "" });
@@ -62,7 +63,10 @@ const Home = () => {
         return (
           <div key={_id}>
             <h2>{name}</h2>
-            <button>Edit</button>
+            <Link to={`/edit/${_id}`}>
+              <button>Edit</button>
+            </Link>
+
             <button onClick={() => handleDelete(_id)}>Delete</button>
           </div>
         );
